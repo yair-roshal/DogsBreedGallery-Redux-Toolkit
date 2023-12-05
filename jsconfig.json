@@ -1,0 +1,29 @@
+{
+  "Host": {
+    "CORS": "*"
+  },
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+
+  "exclude": [
+    ".git",
+    ".app-cache",
+    ".npm",
+    ".npm-tmp",
+    "dist",
+    "dist*",
+    "node_modules",
+    "config",
+    "tests",
+    "public",
+    "app",
+    "concat-stats-for",
+    "subfolder/dist",
+    "subfolder/node_modules",
+    "**/dist/*",
+    "**/node_modules/*"
+  ]
+}
+
+ 

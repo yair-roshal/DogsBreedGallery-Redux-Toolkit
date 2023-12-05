@@ -1,0 +1,44 @@
+.userField {
+  background-color: aquamarine;
+  border: "";
+}
+
+.titlePage {
+  width: 100%;
+  text-align: center;
+  font-size: calc(1em + 4vw);
+  padding-top: 20px;
+}
+
+.addProductContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inputsRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.errorStyle {
+  text-align: center;
+  color: red;
+  margin: 10px;
+}
+
+.tablesContainer {
+  margin: 50px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.cartText {
+  margin-left: 50px;
+}

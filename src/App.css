@@ -1,0 +1,10 @@
+.imgDog {
+  height: 150px;
+}
+.imgDog img {
+  width: 100%;
+} 
+.wrap {
+  height: 100px;
+  overflow: hidden;
+}

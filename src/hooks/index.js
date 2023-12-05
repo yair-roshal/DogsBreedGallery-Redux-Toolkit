@@ -1,0 +1,1 @@
+export { FetchImg } from "./FetchImg";
