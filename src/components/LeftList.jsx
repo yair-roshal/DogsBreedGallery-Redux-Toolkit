@@ -1,49 +1,41 @@
-import { useEffect, useState, useContext, useMemo } from "react";
-import List from "@mui/material/List";
+import List from "@mui/material/List"
 
-import { LeftListItem } from "./LeftListItem";
-// import { DogsContext } from "../contexts/Context";
-import { toObject, searchLikes } from "../utils/func";
-import { useDogs } from "redux/dogsSlice";
+import { LeftListItem } from "./LeftListItem"
+import { useDogs } from "redux/dogsSlice"
+
 export const LeftList = () => {
-  // const [entities, setDogs] = useContext(DogsContext);
-  const { entities, breeds, loadingBreeds, loadingImages } = useDogs();
+	const { entities, breeds, loadingBreeds, loadingImages } = useDogs()
 
-  const newArr = [];
-  for (let i = 0; i < entities.length; ++i) {
-    const values = Object.values(entities[i]);
-    newArr.push(values[1]);
-  }
+	const likesByBreed = {}
+	const breedCount = {}
 
-  const countOfBreed = newArr.reduce((acc, el) => {
-    acc[el] = (acc[el] || 0) + 1;
-    return acc;
-  }, {});
+	entities.forEach((dog) => {
+		if (!likesByBreed[dog.breed]) {
+			likesByBreed[dog.breed] = 0
+			breedCount[dog.breed] = 0
+		}
+		likesByBreed[dog.breed] += dog.likes
+		breedCount[dog.breed]++
+	})
 
-  const allBreeds = Object.keys(countOfBreed);
-  const ArrayCountOfBreed = Object.entries(countOfBreed);
-  const ObjectCountOfBreed = toObject(ArrayCountOfBreed);
+	const result = Object.entries(likesByBreed).map(([breed, likes]) => ({
+		breed,
+		likes,
+		count: breedCount[breed], 
+	}))
 
-  const [newLeftList, setNewLeftList] = useState(
-    searchLikes(entities, ObjectCountOfBreed, allBreeds)
-  );
-
-  useEffect(() => {
-    setNewLeftList(searchLikes(entities, ObjectCountOfBreed, allBreeds));
-  }, [entities]);
-
-  return (
-    <div>
-      {newLeftList && (
-        <div>
-          <List>
-            {console.log("LeftList :>> ")}
-            {newLeftList.map((dog, index) => (
-              <LeftListItem key={index} dog={dog} />
-            ))}
-          </List>
-        </div>
-      )}
-    </div>
-  );
-};
+	return (
+		<div>
+			{result && console.log("newLeftList :>> ", result)}
+			{result && (
+				<div>
+					<List>
+						{result.map((dog, index) => (
+							<LeftListItem key={index} dog={dog} />
+						))}
+					</List>
+				</div>
+			)}
+		</div>
+	)
+}
