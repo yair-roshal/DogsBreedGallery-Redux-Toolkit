@@ -40,16 +40,19 @@ export const RightListItem = ({ dog }) => {
 				}}
 			>
 				<Card sx={{ maxWidth: 345 }}>
-					<CardHeader subheader={breed} />
-					<CardActions disableSpacing>
-						<IconButton
-							onClick={() => dispatch(addLike({ id, breed }))}
-							aria-label="add to favorites"
-							sx={{ color: likes > 0 ? "red" : "" }}
-						>
-							<FavoriteIcon /> <span>{likes} </span>
-						</IconButton>
-					</CardActions>
+					<CardHeader
+						subheader={breed}
+						action={
+							<IconButton
+								onClick={() => dispatch(addLike({ id, breed }))}
+								aria-label="add to favorites"
+								sx={{ color: likes > 0 ? "red" : "" }}
+							>
+								<FavoriteIcon /> <span>{likes} </span>
+							</IconButton>
+						}
+					/>
+					<CardActions disableSpacing></CardActions>
 					<>
 						{loadingImages && <div>Loading</div>}
 						{!loadingImages && (

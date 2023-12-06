@@ -40,19 +40,20 @@ export const LeftListItem = ({ dog }) => {
 						}}
 					/>
 
+					<IconButton
+						aria-label="add to favorites"
+						sx={{ color: likes > 0 ? "red" : "" }}
+					>
+						<FavoriteIcon /> <span>{likes} </span>
+					</IconButton>
+
 					<CardContent>
 						<Typography variant="body1" color="text.secondary">
-							count images = {count}
+							  images: 
 						</Typography>
-
-						<CardActions disableSpacing>
-							<IconButton
-								aria-label="add to favorites"
-								sx={{ color: likes > 0 ? "red" : "" }}
-							>
-								<FavoriteIcon /> <span>{likes} </span>
-							</IconButton>
-						</CardActions>
+						<Typography variant="h5" >
+						 {count}
+						</Typography>
 					</CardContent>
 				</Card>
 			</ListItem>

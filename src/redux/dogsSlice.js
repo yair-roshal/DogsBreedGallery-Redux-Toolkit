@@ -74,7 +74,7 @@ const dogsSlice = createSlice({
 				console.log(" action.payload", action.payload)
 				const randomBreeds = action.payload
 					.sort(() => Math.random() - 0.5)
-					// .slice(0, rows * 4)
+					.slice(0, rows * 4)
 
 				state.loadingBreeds = false
 				state.breeds = randomBreeds
