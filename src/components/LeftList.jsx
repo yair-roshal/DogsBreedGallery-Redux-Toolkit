@@ -2,15 +2,16 @@ import { useEffect, useState, useContext, useMemo } from "react";
 import List from "@mui/material/List";
 
 import { LeftListItem } from "./LeftListItem";
-import { DogsContext } from "../contexts/Context";
+// import { DogsContext } from "../contexts/Context";
 import { toObject, searchLikes } from "../utils/func";
-
+import { useDogs } from "redux/dogsSlice";
 export const LeftList = () => {
-  const [dogs, setDogs] = useContext(DogsContext);
+  // const [entities, setDogs] = useContext(DogsContext);
+  const { entities, breeds, loadingBreeds, loadingImages } = useDogs();
 
   const newArr = [];
-  for (let i = 0; i < dogs.length; ++i) {
-    const values = Object.values(dogs[i]);
+  for (let i = 0; i < entities.length; ++i) {
+    const values = Object.values(entities[i]);
     newArr.push(values[1]);
   }
 
@@ -24,12 +25,12 @@ export const LeftList = () => {
   const ObjectCountOfBreed = toObject(ArrayCountOfBreed);
 
   const [newLeftList, setNewLeftList] = useState(
-    searchLikes(dogs, ObjectCountOfBreed, allBreeds)
+    searchLikes(entities, ObjectCountOfBreed, allBreeds)
   );
 
   useEffect(() => {
-    setNewLeftList(searchLikes(dogs, ObjectCountOfBreed, allBreeds));
-  }, [dogs]);
+    setNewLeftList(searchLikes(entities, ObjectCountOfBreed, allBreeds));
+  }, [entities]);
 
   return (
     <div>

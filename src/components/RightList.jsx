@@ -1,17 +1,18 @@
 import { RightListItem } from "./RightListItem";
 import Grid from "@mui/material/Grid";
-import { useContext } from "react";
-import { DogsContext } from "../contexts/Context";
-
+// import { useContext } from "react";
+// import { DogsContext } from "../contexts/Context";
+import { useDogs } from "redux/dogsSlice";
 export const RightList = () => {
-  const [dogs, setDogs] = useContext(DogsContext);
+  // const [entities, setDogs] = useContext(DogsContext);
+  const { entities, breeds, loadingBreeds, loadingImages } = useDogs();
 
   return (
     <div>
-      {dogs && (
+      {entities && (
         <div>
           <Grid container spacing={2}>
-            {dogs.map((dog, index) => (
+            {entities.map((dog, index) => (
               <RightListItem key={index} dog={dog} />
             ))}
           </Grid>

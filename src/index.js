@@ -14,9 +14,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
  
 
 root.render(
-  // <Provider store={store}>
-  // <DogsContext.Provider value={(dogs, setDogs)}>
+  <Provider store={store}>
+  {/* // <DogsContext.Provider value={(dogs, setDogs)}> */}
     <App />
-  // </DogsContext.Provider>
-  // </Provider>
+  {/* // </DogsContext.Provider> */}
+   </Provider>
 );
