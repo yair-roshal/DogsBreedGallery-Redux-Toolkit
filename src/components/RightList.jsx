@@ -1,11 +1,9 @@
-import { RightListItem } from "./RightListItem"
-import Grid from "@mui/material/Grid"
-// import { useContext } from "react";
-// import { DogsContext } from "../contexts/Context";
+import { RightListItem } from "components/RightListItem"
+import { Grid } from "@mui/material"
 import { useDogs } from "redux/dogsSlice"
+
 export const RightList = () => {
-	// const [entities, setDogs] = useContext(DogsContext);
-	const { entities, breeds, loadingBreeds, loadingImages } = useDogs()
+	const { entities } = useDogs()
 
 	return (
 		<div>

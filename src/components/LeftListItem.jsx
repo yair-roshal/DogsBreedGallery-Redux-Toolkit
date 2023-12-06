@@ -1,14 +1,16 @@
-import { styled, Box } from "@mui/system"
+import {
+	ListItem,
+	Box,
+	Divider,
+	Card,
+	CardHeader,
+	CardContent,
+	Typography,
+	CardActions,
+	IconButton,
+} from "@mui/material"
 
-import ListItem from "@mui/material/ListItem"
-import Divider from "@mui/material/Divider"
-import Card from "@mui/material/Card"
-import CardHeader from "@mui/material/CardHeader"
-import CardContent from "@mui/material/CardContent"
-import Typography from "@mui/material/Typography"
-import CardActions from "@mui/material/CardActions"
 import FavoriteIcon from "@mui/icons-material/Favorite"
-import IconButton from "@mui/material/IconButton"
 
 export const LeftListItem = ({ dog }) => {
 	const { breed, count, likes } = dog

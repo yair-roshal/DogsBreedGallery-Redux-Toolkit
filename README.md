@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+Dog Image Gallery App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+General Idea
 
-## Available Scripts
+The application includes 1 page with the following layout:
+-	Right side – Table of 5 columns and 20 rows.
+	Each dog is related to a specific breed.
+	Each cell is a dog image from a random breed.
+	Each click on an image increases the like count by 1.
+-	Left Side – Dog Images and Like summary grouped by breed
+	Example: bulldog-french images: 4, likes: 2.
 
-In the project directory, you can run:
+Details
 
-### `npm start`
+-	Gallery – Right Side
+	Get all breeds:
+	api: https://dog.ceo/api/breeds/list/all
+	api response is a map where each key is a breed.
+	Ignore sub breeds.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+	Get Dog image:
+	Api: https://dog.ceo/api/breed/pug/images/random
+	Copy and paste the link in the browser to perform the request.
+	Click - Clicking on a dog increase like +1. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-	Summary – Left Side
+	Displays the list of breeds in a box – 15% width from the screen.
+	Each item in the list should display the the images and likes total counts by breed. 
 
-### `npm test`
+Guide Lines
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-	Apply code standards.
+-	Use NPM packages.
+-	Components architecture.
+-	Advanced usage of Redux and JS in general.
+-	Best practices.
+-	ES6
 
-### `npm run build`
+Requirements
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-	React & Redux
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Bonus 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-	Tablet display: The layout will change on Tablet resolution. Top sticky header and the gallery will turn scrollable.
+Example:
 
-### `npm run eject`
+This Example contains 3 dogs of bulldog-frech breed.
+-	Right side: random images dogs using the dog api
+	each will contain also likes counter (individual – current image)
+-	Left side: total image count by breed and total likes by breed.
+ 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -1,10 +1,10 @@
 import List from "@mui/material/List"
 
-import { LeftListItem } from "./LeftListItem"
+import { LeftListItem } from "components/LeftListItem"
 import { useDogs } from "redux/dogsSlice"
 
 export const LeftList = () => {
-	const { entities, breeds, loadingBreeds, loadingImages } = useDogs()
+	const { entities } = useDogs()
 
 	const likesByBreed = {}
 	const breedCount = {}
@@ -21,7 +21,7 @@ export const LeftList = () => {
 	const result = Object.entries(likesByBreed).map(([breed, likes]) => ({
 		breed,
 		likes,
-		count: breedCount[breed], 
+		count: breedCount[breed],
 	}))
 
 	return (

@@ -1,9 +1,6 @@
-import { RightList } from "./RightList"
-import { LeftList } from "./LeftList"
-import { styled } from "@mui/material/styles"
-import Grid from "@mui/material/Grid"
-import Paper from "@mui/material/Paper"
-import Box from "@mui/material/Box"
+import { RightList } from "components/RightList"
+import { LeftList } from "components/LeftList"
+import { styled, Grid, Paper, Box } from "@mui/material"
 
 const Item = styled(Paper)(({ theme }) => ({
 	...theme.typography.body2,
