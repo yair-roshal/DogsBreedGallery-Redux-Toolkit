@@ -24,53 +24,15 @@ export function App() {
 		dispatch(fetchBreeds())
 	}, [])
 
-	useEffect(() => {
-		console.log("breeds", breeds)
-		console.log("entities", entities)
-
-		// console.log(
-		//   "ArrayToObject(randomArray(Object.keys(breeds))) ",
-		//   ArrayToObject(randomArray(Object.keys(breeds)))
-		// );
-
-		// const newEntities = ArrayToObject(randomArray(Object.keys(breeds)));
-		console.log("breeds", breeds)
-
-		const newBreeds = []
-
-		if (breeds.length > 0) {
-			const rowsAmount = 20
-			for (let i = 0; i < rowsAmount * 4; i++) {
-				newBreeds.push({
-					id: i,
-					breed: breeds[random(0, breeds.length - 1)],
-					image: null,
-				})
-			}
-			setNewBreeds(newBreeds)
-
-			console.log("newBreeds :>> ", newBreeds)
-		}
-	}, [breeds])
-
-	// useEffect(() => {
-	// 	dispatch(addEntities(newBreeds))
-	// }, [newBreeds])
-
+ 
 	return (
 		<>
-			{/* <DogsContext.Provider value={[dogs, setDogs]}> */}
-
-			{/* <Provider store={store}> */}
 			{loadingBreeds && <div>Loading</div>}
 			{!loadingBreeds && (
 				<div className="App">
 					<Home />
 				</div>
 			)}
-			{/* </Provider> */}
-
-			{/* </DogsContext.Provider> */}
 		</>
 	)
 }
