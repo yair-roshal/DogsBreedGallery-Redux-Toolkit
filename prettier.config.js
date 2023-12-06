@@ -1,6 +1,6 @@
 const config = {
-	semi: true, // Точка с запятой
-	useTabs: false, // Использовать табы
+	semi: false, // Точка с запятой
+	useTabs: true, // Использовать табы
 	jsxSingleQuote: false, // Одинарные кавычки в JSX
 	singleQuote: false, // Одинарные кавычки
 

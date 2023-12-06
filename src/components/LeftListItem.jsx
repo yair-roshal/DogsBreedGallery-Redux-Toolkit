@@ -1,26 +1,24 @@
+import { styled, Box } from "@mui/system";
+
 import ListItem from "@mui/material/ListItem";
 import Divider from "@mui/material/Divider";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { styled } from "@mui/system";
 import CardActions from "@mui/material/CardActions";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
-
-const MyBox = styled("Box")({
-  padding: 2,
-  cursor: "pointer",
-});
-
-console.log("LeftListItem :>> ");
+// const MyBox = styled("Box")({
+//   padding: 2,
+//   cursor: "pointer",
+// });
 
 export const LeftListItem = ({ dog }) => {
   const { breed, count, likes } = dog;
 
   return (
-    <MyBox
+    <Box
       sx={{
         width: "100%",
         bgcolor: "background.paper",
@@ -62,6 +60,6 @@ export const LeftListItem = ({ dog }) => {
       </ListItem>
 
       <Divider />
-    </MyBox>
+    </Box>
   );
 };

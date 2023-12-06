@@ -6,10 +6,28 @@ export function toObject(arr) {
       rv.id = i;
       rv.breed = arr[i][0];
       rv.count = arr[i][1];
+      rv.image = null;
+
       rv.likes = 0;
+
       arrOfObj.push(rv);
     }
 
+  return arrOfObj;
+}
+
+export function ArrayToObject(array) {
+  const arrOfObj = [];
+  for (let i = 0; i < array.length; ++i)
+    if (array[i] !== undefined) {
+      const rv = {};
+      rv.id = i;
+      rv.breed = array[i];
+      rv.image = null;
+      rv.likes = 0;
+      arrOfObj.push(rv);
+    }
+  console.log("ArrayToObject :>> ", ArrayToObject);
   return arrOfObj;
 }
 
@@ -48,19 +66,6 @@ export function randomArray(array) {
   for (let i = 0; i < 80; i++) {
     randomArr.push(array[random(0, array.length)]);
   }
+  console.log("randomArr :>> ", randomArr);
   return randomArr;
-}
-
-export function ArrayToObject(array) {
-  const arrOfObj = [];
-  for (let i = 0; i < array.length; ++i)
-    if (array[i] !== undefined) {
-      const rv = {};
-      rv.id = i;
-      rv.breed = array[i];
-      rv.likes = 0;
-      arrOfObj.push(rv);
-    }
-
-  return arrOfObj;
 }

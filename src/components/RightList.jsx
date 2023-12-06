@@ -9,15 +9,17 @@ export const RightList = () => {
 
   return (
     <div>
-      {entities && (
-        <div>
-          <Grid container spacing={2}>
-            {entities.map((dog, index) => (
-              <RightListItem key={index} dog={dog} />
-            ))}
-          </Grid>
-        </div>
-      )}
+      {entities &&
+        entities.length >0 &&
+          (
+            <div>
+              <Grid container spacing={2}>
+                {entities.map((dog, index) => (
+                  <RightListItem key={index} dog={dog} />
+                ))}
+              </Grid>
+            </div>
+          )}
     </div>
   );
 };
