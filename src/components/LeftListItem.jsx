@@ -42,7 +42,7 @@ export const LeftListItem = ({ dog }) => {
 
 					<CardContent>
 						<Typography variant="body1" color="text.secondary">
-							count={count}
+							count images = {count}
 						</Typography>
 
 						<CardActions disableSpacing>

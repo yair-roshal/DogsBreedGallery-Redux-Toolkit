@@ -4,8 +4,25 @@ import { useDispatch, useSelector } from "react-redux"
 export const fetchBreeds = createAsyncThunk("dogs/fetchBreeds", async () => {
 	const response = await fetch("https://dog.ceo/api/breeds/list/all")
 	const breedsData = await response.json()
+
+	console.log("breedsData.message", breedsData.message)
+
+	const breedsByCount = []
+
+	for (const breed in breedsData.message) {
+		if (breedsData.message[breed].length > 0) {
+			for (const subbreed of breedsData.message[breed]) {
+				breedsByCount.push(breed)
+			}
+		} else {
+			breedsByCount.push(breed)
+		}
+	}
+
 	const breeds = Object.keys(breedsData.message)
-	return breeds
+	// return breeds
+
+	return breedsByCount
 })
 
 export const fetchDogImage = createAsyncThunk(
@@ -53,9 +70,11 @@ const dogsSlice = createSlice({
 				state.loadingBreeds = true
 			})
 			.addCase(fetchBreeds.fulfilled, (state, action) => {
+				const rows = 20
+				console.log(" action.payload", action.payload)
 				const randomBreeds = action.payload
 					.sort(() => Math.random() - 0.5)
-					.slice(0, 80)
+					// .slice(0, rows * 4)
 
 				state.loadingBreeds = false
 				state.breeds = randomBreeds

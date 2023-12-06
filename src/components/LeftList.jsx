@@ -1,4 +1,5 @@
 import List from "@mui/material/List"
+import { useMemo } from "react"
 
 import { LeftListItem } from "components/LeftListItem"
 import { useDogs } from "redux/dogsSlice"
@@ -6,31 +7,32 @@ import { useDogs } from "redux/dogsSlice"
 export const LeftList = () => {
 	const { entities } = useDogs()
 
-	const likesByBreed = {}
-	const breedCount = {}
+	const breedsList = useMemo(() => {
+		const list = []
 
-	entities.forEach((dog) => {
-		if (!likesByBreed[dog.breed]) {
-			likesByBreed[dog.breed] = 0
-			breedCount[dog.breed] = 0
-		}
-		likesByBreed[dog.breed] += dog.likes
-		breedCount[dog.breed]++
-	})
+		entities.forEach((dog) => {
+			const existingBreed = list.find((breed) => breed.breed === dog.breed)
+			if (!existingBreed) {
+				list.push({
+					breed: dog.breed,
+					likes: dog.likes,
+					count: 1,
+				})
+			} else {
+				existingBreed.likes += dog.likes
+				existingBreed.count++
+			}
+		})
 
-	const result = Object.entries(likesByBreed).map(([breed, likes]) => ({
-		breed,
-		likes,
-		count: breedCount[breed],
-	}))
+		return list
+	}, [entities])
 
 	return (
 		<div>
-			{result && console.log("newLeftList :>> ", result)}
-			{result && (
+			{breedsList && (
 				<div>
 					<List>
-						{result.map((dog, index) => (
+						{breedsList.map((dog, index) => (
 							<LeftListItem key={index} dog={dog} />
 						))}
 					</List>
